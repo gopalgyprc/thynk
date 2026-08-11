@@ -1,0 +1,11 @@
+{
+  "name": "@thynk/payment-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Payment Processing Microservice",
+  "scripts": {
+    "dev": "echo 'Payment service not yet implemented'",
+    "build": "echo 'Payment service not yet implemented'",
+    "start": "echo 'Payment service not yet implemented'"
+  }
+}

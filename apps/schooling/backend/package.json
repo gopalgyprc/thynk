@@ -1,0 +1,11 @@
+{
+  "name": "@thynk/schooling-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Schooling Backend API",
+  "scripts": {
+    "dev": "echo 'Backend not yet implemented'",
+    "build": "echo 'Backend not yet implemented'",
+    "start": "echo 'Backend not yet implemented'"
+  }
+}

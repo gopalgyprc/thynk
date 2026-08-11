@@ -1,0 +1,11 @@
+{
+  "name": "@thynk/notification-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Notification & Email Microservice",
+  "scripts": {
+    "dev": "echo 'Notification service not yet implemented'",
+    "build": "echo 'Notification service not yet implemented'",
+    "start": "echo 'Notification service not yet implemented'"
+  }
+}

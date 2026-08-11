@@ -1,0 +1,29 @@
+{
+  "name": "thynksuccess",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ThynkSuccess Monorepo - Multi-product platform",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "clean": "turbo clean",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "check-types": "turbo check-types"
+  },
+
+  "workspaces": [
+    "apps/*/frontend",
+    "packages/*",
+    "shared/*"
+  ],
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "prettier": "^3.4.0",
+    "@thynk/prettier-config": "*"
+  },
+  "packageManager": "npm@10.9.0",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

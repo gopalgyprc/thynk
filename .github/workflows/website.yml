@@ -1,0 +1,51 @@
+name: Website CI
+
+on:
+  push:
+    branches:
+      - develop
+      - "feature/**"
+      - "bugfix/**"
+      - "hotfix/**"
+    paths:
+      - "apps/website/**"
+
+  pull_request:
+    branches:
+      - develop
+      - main
+    paths:
+      - "apps/website/**"
+
+jobs:
+  ci:
+    name: Lint, Type Check & Build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/website/frontend
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: apps/main-website/frontend/package-lock.json
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: .
+
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Run Type Check
+        run: npm run check-types
+
+      - name: Build Project
+        run: npm run build

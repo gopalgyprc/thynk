@@ -1,0 +1,11 @@
+{
+  "name": "@thynk/auth-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Authentication & Authorization Microservice",
+  "scripts": {
+    "dev": "echo 'Auth service not yet implemented'",
+    "build": "echo 'Auth service not yet implemented'",
+    "start": "echo 'Auth service not yet implemented'"
+  }
+}

@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-purple-700: #4f1fd1;
+  --color-purple-600: #6528f7;
+  --color-purple-500: #7565ee;
+  --color-purple-300: #a993f5;
+  --color-purple-200: #d0bcff;
+  --color-lavender-200: #d8d8f5;
+  --color-lavender-100: #f2f0fe;
+  --color-cream: #faf8fd;
+  --color-ink-950: #1a1530;
+  --color-ink-900: #241c3d;
+  --color-ink-700: #463b63;
+  --color-slate-600: #6b6480;
+  --color-surface: #faf8fd;
+  --color-surface-secondary: #f2f0fe;
+  --color-text-primary: #241c3d;
+  --color-text-secondary: #6b6480;
+  --color-border: #e8e2f8;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-head: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "Sen";
+  src: url("/fonts/Sen/static/Sen-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Prata";
+  src: url("/fonts/Prata/Prata-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InterLocal";
+  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InterLocal";
+  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink-900 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Sen", var(--font-display);
+  }
+
+  ::selection {
+    @apply bg-purple-200 text-ink-950;
+  }
+}
+
+@layer utilities {
+  .font-pacifico {
+    font-family: "Sen", var(--font-display);
+  }
+
+  .font-prata {
+    font-family: "Prata", Georgia, serif;
+  }
+
+  .font-inter {
+    font-family: "InterLocal", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto w-full max-w-[1180px] px-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[10px] bg-purple-600 px-6 py-3.5 font-head text-[14.5px] font-semibold text-white shadow-[0_10px_24px_-8px_rgba(101,40,247,0.55)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-purple-700 hover:shadow-[0_16px_30px_-10px_rgba(101,40,247,0.6)];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-[10px] border-[1.5px] border-purple-600/30 bg-transparent px-6 py-3.5 font-head text-[14.5px] font-semibold text-purple-600 transition-all duration-200 hover:border-purple-600 hover:bg-lavender-100;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-head text-[12.5px] font-bold uppercase tracking-[0.14em] text-purple-600;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-purple-600);
+    box-shadow: 0 0 0 4px var(--color-lavender-100);
+  }
+}

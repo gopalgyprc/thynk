@@ -1,0 +1,31 @@
+{
+  "name": "@thynk/eslint-config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./flat": "./flat.mjs",
+    "./next": "./next.js",
+    "./react": "./react.js"
+  },
+  "files": [
+    "index.js",
+    "flat.mjs",
+    "next.js",
+    "react.js"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0"
+  }
+}

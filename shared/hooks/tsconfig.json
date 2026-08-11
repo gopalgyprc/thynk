@@ -1,0 +1,9 @@
+{
+  "extends": "@thynk/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx"
+  },
+  "include": ["."],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@thynk/gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API Gateway (Reverse Proxy / BFF)",
+  "scripts": {
+    "dev": "echo 'Gateway not yet implemented'",
+    "build": "echo 'Gateway not yet implemented'",
+    "start": "echo 'Gateway not yet implemented'"
+  }
+}

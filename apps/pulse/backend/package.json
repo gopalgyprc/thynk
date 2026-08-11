@@ -1,0 +1,11 @@
+{
+  "name": "@thynk/pulse-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pulse Backend API",
+  "scripts": {
+    "dev": "echo 'Backend not yet implemented'",
+    "build": "echo 'Backend not yet implemented'",
+    "start": "echo 'Backend not yet implemented'"
+  }
+}
