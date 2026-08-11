@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { FadeInView } from "./AnimatedSection";
 
@@ -27,11 +27,10 @@ const articles = [
     bgClass: "bg-[#f1f5f9]",
   },
 ];
-
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 35,
+    y: 20,
   },
   visible: (index: number) => ({
     opacity: 1,
@@ -39,11 +38,10 @@ const cardVariants = {
     transition: {
       duration: 0.65,
       delay: index * 0.12,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: "easeOut",
     },
   }),
 };
-
 export default function InsightsSection() {
   return (
     <section className="relative overflow-hidden bg-white py-20 sm:py-24">
@@ -156,7 +154,7 @@ export default function InsightsSection() {
                     y: 0,
                     transition: {
                       duration: 0.6,
-                      ease: [0.22, 1, 0.36, 1],
+                      ease: "easeOut",
                     },
                   },
                 }}

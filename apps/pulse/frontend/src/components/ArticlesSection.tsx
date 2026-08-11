@@ -1,10 +1,14 @@
-device"use client";
+"use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
 const categories = ["All Posts", "Educators", "EdTech", "Sales", "Leadership"];
+
+const hoverIconVariants: Variants = {
+  hover: { x: 3 },
+};
 
 export default function ArticlesSection() {
   const [selectedCategory, setSelectedCategory] = useState("All Posts");
@@ -45,6 +49,7 @@ export default function ArticlesSection() {
               const isActive = selectedCategory === category;
               return (
                 <button
+                  type="button"
                   key={category}
                   onClick={() => setSelectedCategory(category)}
                   className={`relative rounded-full px-4 py-2 text-xs font-semibold transition-colors duration-200 sm:px-5 sm:text-sm ${
@@ -249,6 +254,7 @@ export default function ArticlesSection() {
         {/* Browse Button */}
         <div className="mt-14 flex justify-center">
           <motion.button
+            type="button"
             whileHover="hover"
             whileTap={{ scale: 0.98 }}
             className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-purple-100 bg-white px-8 py-3.5 text-sm font-bold text-pulse-600 shadow-[0_10px_30px_-15px_rgba(90,54,217,0.4)] transition-colors duration-200 hover:bg-pulse-50"
@@ -256,7 +262,7 @@ export default function ArticlesSection() {
             Browse All Articles
             <motion.div
               className="relative flex h-4 w-4 items-center justify-center"
-              variants={{ hover: { x: 3 } }}
+              variants={hoverIconVariants}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Image src="/assets/Icon.png" alt="Right arrow" width={12} height={12} className="object-contain" />

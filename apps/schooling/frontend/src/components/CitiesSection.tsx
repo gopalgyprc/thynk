@@ -1,6 +1,5 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FadeInView } from "./AnimatedSection";
 
 const cities = [
@@ -18,24 +17,24 @@ const cities = [
   "Chandigarh",
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 20,
-    scale: 0.96,
+    scale: 0.95,
   },
+
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.45,
+      duration: 0.5,
       delay: index * 0.06,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: "easeOut",
     },
   }),
 };
-
 export default function CitiesSection() {
   return (
     <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-20 lg:py-24">
@@ -111,7 +110,7 @@ export default function CitiesSection() {
               }}
               transition={{
                 duration: 0.65,
-                ease: [0.22, 1, 0.36, 1],
+                ease: "easeOut",
               }}
             >
               {/* Eyebrow */}

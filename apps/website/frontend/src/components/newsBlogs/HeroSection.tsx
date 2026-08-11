@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const filters = ["All Posts", "Edtech", "Higher Ed", "Lead Gen", "School Branding"];
 
@@ -14,9 +14,9 @@ const container = {
   },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", } },
 };
 
 export  function HeroSection() {
@@ -89,7 +89,7 @@ export  function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: "easeOut", }}
           whileHover={{ y: -6 }}
           className="mt-10 grid grid-cols-1 overflow-hidden rounded-3xl border border-purple-100/70 bg-white shadow-[0_25px_60px_-25px_rgba(147,51,234,0.3)] md:grid-cols-2"
         >

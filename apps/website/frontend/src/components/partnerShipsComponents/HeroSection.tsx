@@ -1,7 +1,7 @@
 "use client";
 
 import { GraduationCap, TrendingUp, Globe2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -11,9 +11,16 @@ const container = {
   },
 };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+    },
+  },
 };
 
 const badges = [
@@ -113,7 +120,7 @@ export  function HeroSection() {
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: "easeOut", }}
           className="relative"
         >
           <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[2.5rem] bg-purple-200/30 blur-2xl" />

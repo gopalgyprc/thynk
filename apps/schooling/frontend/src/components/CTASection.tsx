@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 
 const benefits = [
@@ -10,7 +10,7 @@ const benefits = [
   "Admission tracking assistance",
 ];
 
-const textVariants = {
+const textVariants: Variants = {
   hidden: {
     opacity: 0,
     x: -35,
@@ -20,7 +20,7 @@ const textVariants = {
     x: 0,
     transition: {
       duration: 0.65,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: "easeOut",
     },
   },
 };
@@ -53,7 +53,7 @@ export default function CTASection() {
           }}
           transition={{
             duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
+            ease: "easeOut",
           }}
           className="
             relative
@@ -188,7 +188,7 @@ export default function CTASection() {
                         x: 0,
                         transition: {
                           duration: 0.45,
-                          ease: [0.22, 1, 0.36, 1],
+                          ease: "easeOut",
                         },
                       },
                     }}
@@ -335,7 +335,7 @@ export default function CTASection() {
               transition={{
                 duration: 0.9,
                 delay: 0.15,
-                ease: [0.22, 1, 0.36, 1],
+                ease: "easeOut",
               }}
               className="relative min-h-[300px] w-full overflow-hidden bg-slate-900/10 lg:col-span-5 lg:min-h-[450px]"
             >

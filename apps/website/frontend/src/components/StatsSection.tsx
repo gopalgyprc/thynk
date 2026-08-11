@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, Variants } from "framer-motion";
+
+import type { ReactNode } from "react";
 
 type Stat = {
-  icon: (props: { className?: string }) => JSX.Element;
+ icon: (props: { className?: string }) => ReactNode;
   value: number;
   format: (v: number) => string;
   label: string;
@@ -102,7 +104,7 @@ const listContainer = {
   show: { transition: { staggerChildren: 0.12 } },
 };
 
-const listItem = {
+const listItem: Variants = {
   hidden: { opacity: 0, y: 28 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };

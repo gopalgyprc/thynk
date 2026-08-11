@@ -1,6 +1,5 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -10,9 +9,9 @@ const container = {
   },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", } },
 };
 
 const inputClasses =
@@ -27,7 +26,7 @@ export  function RequestFreeGrowthDiscussion() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: "easeOut", }}
         className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-purple-600 via-purple-700 to-violet-800 px-6 py-12 shadow-[0_35px_70px_-25px_rgba(88,28,135,0.55)] sm:px-12 sm:py-14"
       >
         {/* ambient glow */}

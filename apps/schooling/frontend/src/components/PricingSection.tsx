@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { FadeInView } from "./AnimatedSection";
 
@@ -44,12 +44,13 @@ const plans = [
   },
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 50,
-    scale: 0.94,
+    y: 20,
+    scale: 0.95,
   },
+
   visible: (idx: number) => ({
     opacity: 1,
     y: 0,
@@ -57,7 +58,7 @@ const cardVariants = {
     transition: {
       duration: 0.65,
       delay: idx * 0.12,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: "easeOut",
     },
   }),
 };
@@ -203,7 +204,7 @@ export default function PricingSection() {
                   y: 0,
                   transition: {
                     duration: 0.65,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: "easeOut",
                   },
                 },
               }}

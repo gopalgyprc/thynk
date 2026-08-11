@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FadeInView } from "./AnimatedSection";
 
-const paragraphVariants = {
+const paragraphVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 24,
@@ -13,7 +13,7 @@ const paragraphVariants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: "easeOut",
     },
   },
 };
@@ -95,7 +95,7 @@ export default function MissionSection() {
               }}
               transition={{
                 duration: 0.7,
-                ease: [0.22, 1, 0.36, 1],
+                ease: "easeOut",
               }}
               className="mb-10 text-center sm:mb-12"
             >
@@ -171,7 +171,7 @@ export default function MissionSection() {
               transition={{
                 duration: 0.8,
                 delay: 0.15,
-                ease: [0.22, 1, 0.36, 1],
+                ease: "easeOut",
               }}
               className="
                 relative
