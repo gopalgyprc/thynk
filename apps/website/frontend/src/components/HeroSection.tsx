@@ -53,7 +53,7 @@ export default function HeroSection() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-5 max-w-[620px] font-pacifico text-[clamp(32px,4vw,54px)] font-normal leading-[1.35]  text-ink-950 italic sm:leading-[1.4]"
+            className="mt-5 max-w-[620px] font-serif italic text-[clamp(32px,4vw,54px)] font-normal leading-[1.35]  text-ink-950  sm:leading-[1.4]"
           >
             Explore Global Education Opportunities with{" "}
             <em className="not-italic text-purple-600 whitespace-nowrap">Thynk Success</em>

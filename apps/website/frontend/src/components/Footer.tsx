@@ -133,7 +133,7 @@ export default function Footer() {
           </FadeInView>
 
           <FadeInView delay={0.08}>
-            <h4 className="mb-5 font-display text-lg font-bold tracking-tight text-ink-950">Our Services</h4>
+            <h4 className="mb-5 font-serif italic text-lg font-bold tracking-tight text-ink-950">Our Services</h4>
             <ul className="space-y-3.5 text-[15px]">
               {services.map((item) => (
                 <li key={item}>
@@ -144,7 +144,7 @@ export default function Footer() {
           </FadeInView>
 
           <FadeInView delay={0.12}>
-            <h4 className="mb-5 font-display text-lg font-bold tracking-tight text-ink-950">Quick Links</h4>
+            <h4 className="mb-5 font-serif italic text-lg font-bold tracking-tight text-ink-950">Quick Links</h4>
             <ul className="space-y-3.5 text-[15px]">
               {quickLinks.map((item) => (
                 <li key={item.label}>
@@ -155,7 +155,7 @@ export default function Footer() {
           </FadeInView>
 
           <FadeInView delay={0.16}>
-            <h4 className="mb-5 font-display text-lg font-bold tracking-tight text-ink-950">Contact Info</h4>
+            <h4 className="mb-5 font-serif  italic text-lg font-bold tracking-tight text-ink-950">Contact Info</h4>
             <ul className="space-y-4 text-[15px] text-ink-950/85">
               <li className="flex items-start gap-2.5">
                 <svg

@@ -141,7 +141,7 @@ export default function MissionSection() {
               </div>
 
               {/* Main heading */}
-              <h2 className="font-display text-[clamp(32px,5vw,54px)] font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+              <h2 className="font-serif  italic text-[clamp(32px,5vw,54px)] font-semibold leading-[1.08] tracking-[-0.03em] text-white">
                 Transforming Education.
                 <br />
 
