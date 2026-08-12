@@ -71,11 +71,6 @@ const steps = [
     desc: "We map out a strategy built around measurable outcomes.",
   },
 ];
-
-/* -------------------------------------------------------
-   Animation Variants
-------------------------------------------------------- */
-
 const formContainerVariants = {
   hidden: {},
   visible: {
@@ -142,9 +137,6 @@ const buttonVariants = {
   },
 };
 
-/* -------------------------------------------------------
-   Floating Input Field
-------------------------------------------------------- */
 
 function FloatingField({
   name,
@@ -168,7 +160,6 @@ function FloatingField({
         },
       }}
     >
-      {/* Input glow */}
       <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-2xl bg-white/10 opacity-0 blur-xl"
@@ -176,8 +167,6 @@ function FloatingField({
           opacity: 1,
         }}
       />
-
-      {/* Icon */}
       <motion.span
         className="pointer-events-none absolute left-4 top-1/2 z-10 -translate-y-1/2 text-white/50 transition-all duration-300 group-focus-within:scale-110 group-focus-within:text-white"
         whileHover={{
@@ -196,8 +185,6 @@ function FloatingField({
           {icon}
         </svg>
       </motion.span>
-
-      {/* Input */}
       <motion.input
         type={type}
         name={name}
@@ -235,8 +222,6 @@ function FloatingField({
           focus:shadow-[0_0_0_4px_rgba(255,255,255,0.08),0_10px_30px_rgba(0,0,0,0.08)]
         "
       />
-
-      {/* Bottom shine */}
       <motion.div
         className="pointer-events-none absolute bottom-0 left-4 right-4 z-10 h-px origin-left bg-white/70 opacity-0"
         whileFocus={{
@@ -247,11 +232,6 @@ function FloatingField({
     </motion.div>
   );
 }
-
-/* -------------------------------------------------------
-   Main Component
-------------------------------------------------------- */
-
 export default function PartnerSection() {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success"
@@ -285,9 +265,6 @@ export default function PartnerSection() {
       id="contact"
       className="relative overflow-hidden bg-cream py-20 sm:py-28"
     >
-      {/* -------------------------------------------------------
-          Ambient Background
-      ------------------------------------------------------- */}
 
       <motion.div
         aria-hidden
@@ -318,8 +295,6 @@ export default function PartnerSection() {
           ease: "easeInOut",
         }}
       />
-
-      {/* Faint grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -334,10 +309,6 @@ export default function PartnerSection() {
 
       <div className="section-container relative">
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* =====================================================
-              FORM
-          ===================================================== */}
-
           <FadeInView>
             <motion.form
               onSubmit={onSubmit}
@@ -374,9 +345,6 @@ export default function PartnerSection() {
                 sm:py-12
               "
             >
-              {/* -------------------------------------------------------
-                  Decorative Glow Blobs
-              ------------------------------------------------------- */}
 
               <motion.div
                 aria-hidden
@@ -406,7 +374,6 @@ export default function PartnerSection() {
                 }}
               />
 
-              {/* Decorative particles */}
               <motion.div
                 aria-hidden
                 className="pointer-events-none absolute right-20 top-20 h-2 w-2 rounded-full bg-white/30"
@@ -434,11 +401,6 @@ export default function PartnerSection() {
                   ease: "easeInOut",
                 }}
               />
-
-              {/* -------------------------------------------------------
-                  Form Content
-              ------------------------------------------------------- */}
-
               <motion.div
                 className="relative"
                 initial="hidden"
@@ -456,7 +418,6 @@ export default function PartnerSection() {
                   },
                 }}
               >
-                {/* Label */}
                 <motion.span
                   variants={labelVariants}
                   className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/60"
@@ -481,18 +442,12 @@ export default function PartnerSection() {
 
                   Let&apos;s talk
                 </motion.span>
-
-                {/* Heading */}
                 <motion.h3
                   variants={labelVariants}
                   className="mb-7 font-display text-2xl font-bold text-white sm:text-3xl"
                 >
                   Start your growth journey
                 </motion.h3>
-
-                {/* =====================================================
-                    INPUTS
-                ===================================================== */}
 
                 <motion.div
                   className="space-y-4"
@@ -511,11 +466,6 @@ export default function PartnerSection() {
                     />
                   ))}
                 </motion.div>
-
-                {/* =====================================================
-                    SUBMIT BUTTON
-                ===================================================== */}
-
                 <motion.button
                   type="submit"
                   disabled={status !== "idle"}
@@ -564,7 +514,6 @@ export default function PartnerSection() {
                     disabled:opacity-90
                   "
                 >
-                  {/* Button shine */}
                   {status === "idle" && (
                     <motion.span
                       aria-hidden
@@ -585,7 +534,6 @@ export default function PartnerSection() {
                     mode="wait"
                     initial={false}
                   >
-                    {/* IDLE */}
                     {status === "idle" && (
                       <motion.span
                         key="idle"
@@ -627,8 +575,6 @@ export default function PartnerSection() {
                         </motion.svg>
                       </motion.span>
                     )}
-
-                    {/* SUBMITTING */}
                     {status === "submitting" && (
                       <motion.span
                         key="submitting"
@@ -658,8 +604,6 @@ export default function PartnerSection() {
                         Sending
                       </motion.span>
                     )}
-
-                    {/* SUCCESS */}
                     {status === "success" && (
                       <motion.span
                         key="success"
@@ -711,8 +655,6 @@ export default function PartnerSection() {
                     )}
                   </AnimatePresence>
                 </motion.button>
-
-                {/* Bottom Text */}
                 <motion.p
                   variants={labelVariants}
                   className="mt-4 text-center text-xs text-white/50"
@@ -722,11 +664,6 @@ export default function PartnerSection() {
               </motion.div>
             </motion.form>
           </FadeInView>
-
-          {/* =====================================================
-              RIGHT SIDE CONTENT
-          ===================================================== */}
-
           <FadeInView delay={0.12}>
             <motion.div
               initial="hidden"
@@ -744,7 +681,6 @@ export default function PartnerSection() {
                 },
               }}
             >
-              {/* Label */}
               <motion.span
                 variants={labelVariants}
                 className="mb-3 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-purple-600"
@@ -752,16 +688,12 @@ export default function PartnerSection() {
                 <span className="h-px w-6 bg-purple-600/40" />
                 Get in touch
               </motion.span>
-
-              {/* Heading */}
               <motion.h2
                 variants={labelVariants}
                 className="font-display text-[clamp(32px,4.2vw,48px)] font-bold leading-[1.15] tracking-tight text-ink-950"
               >
                 Thynk Success — Your Strategic Partner in Education Growth
               </motion.h2>
-
-              {/* Description */}
               <motion.div
                 variants={labelVariants}
                 className="mt-7 space-y-5 text-base leading-8 text-ink-950/75"
@@ -782,11 +714,6 @@ export default function PartnerSection() {
                   about creating meaningful change that truly matters.
                 </p>
               </motion.div>
-
-              {/* =====================================================
-                  3 STEP PROCESS
-              ===================================================== */}
-
               <div className="mt-10 space-y-6 border-t border-ink-950/10 pt-8">
                 {steps.map((step, i) => (
                   <motion.div
@@ -810,7 +737,6 @@ export default function PartnerSection() {
                     }}
                     className="group flex gap-4"
                   >
-                    {/* Number */}
                     <motion.span
                       whileHover={{
                         scale: 1.12,
@@ -842,8 +768,6 @@ export default function PartnerSection() {
                     >
                       {i + 1}
                     </motion.span>
-
-                    {/* Content */}
                     <div>
                       <p className="font-display text-base font-bold text-ink-950">
                         {step.title}

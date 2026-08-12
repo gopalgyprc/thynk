@@ -58,11 +58,9 @@ export default function ProductsSection() {
       id="products"
       className="section-spacing bg-surface relative overflow-hidden"
     >
-      {/* Background decoration */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="section-container section-padding">
-        {/* Section header */}
         <FadeInView>
           <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium mb-6">
@@ -79,22 +77,17 @@ export default function ProductsSection() {
             </p>
           </div>
         </FadeInView>
-
-        {/* Products grid */}
         <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {products.map((product) => {
             const Icon = product.icon;
             return (
               <StaggerItem key={product.id}>
                 <div className="group relative bg-white rounded-3xl border border-border p-8 sm:p-10 hover-lift shadow-sm hover:shadow-2xl h-full">
-                  {/* Product icon */}
                   <div
                     className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${product.bgColor} ${product.textColor} mb-6 transition-transform duration-300 group-hover:scale-110`}
                   >
                     <Icon size={28} />
                   </div>
-
-                  {/* Product name & description */}
                   <h3 className="text-2xl font-display font-bold text-text-primary mb-1">
                     {product.name}
                   </h3>
@@ -104,8 +97,6 @@ export default function ProductsSection() {
                   <p className="text-text-secondary leading-relaxed mb-8">
                     {product.description}
                   </p>
-
-                  {/* Feature list */}
                   <div className="space-y-3 mb-8">
                     {product.features.map((feature) => {
                       const FeatureIcon = feature.icon;
@@ -127,8 +118,6 @@ export default function ProductsSection() {
                       );
                     })}
                   </div>
-
-                  {/* CTA */}
                   <a
                     href={product.href}
                     className={`inline-flex items-center gap-2 text-sm font-semibold ${product.textColor} hover:gap-3 transition-all duration-300`}
@@ -136,8 +125,6 @@ export default function ProductsSection() {
                     Learn more
                     <ArrowRight size={16} />
                   </a>
-
-                  {/* Gradient decoration */}
                   <div
                     className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${product.color} opacity-0 group-hover:opacity-5 rounded-bl-full transition-opacity duration-500`}
                   />

@@ -19,7 +19,7 @@ const fadeUp = {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-cream pb-20 pt-10 sm:pb-28 sm:pt-14">
+    <section className="relative overflow-hidden bg-cream pb-8 pt-10 sm:pb-12 sm:pt-14">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
@@ -53,7 +53,7 @@ export default function HeroSection() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-5 max-w-[620px] font-serif italic text-[clamp(32px,4vw,54px)] font-normal leading-[1.35]  text-ink-950  sm:leading-[1.4]"
+            className="mt-5 max-w-[620px] font-serif italic text-[clamp(32px,4vw,54px)] font-bold leading-[1.35]  text-ink-950  sm:leading-[1.4]"
           >
             Explore Global Education Opportunities with{" "}
             <em className="not-italic text-purple-600 whitespace-nowrap">Thynk Success</em>

@@ -24,7 +24,6 @@ export  function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#FBFAFF] py-16 sm:py-10">
-      {/* faint grid texture */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
@@ -41,7 +40,6 @@ export  function HeroSection() {
       <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-purple-200/25 blur-[110px]" />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
-        {/* Search bar */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,8 +54,6 @@ export  function HeroSection() {
             className="w-full rounded-xl border border-purple-100/70 bg-white py-3.5 pl-11 pr-4 text-sm text-slate-700 placeholder:text-slate-400 shadow-[0_10px_30px_-15px_rgba(147,51,234,0.25)] outline-none transition-colors focus:border-purple-300 focus:ring-2 focus:ring-purple-100"
           />
         </motion.div>
-
-        {/* Filter pills */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -83,8 +79,6 @@ export  function HeroSection() {
             );
           })}
         </motion.div>
-
-        {/* Featured post card */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

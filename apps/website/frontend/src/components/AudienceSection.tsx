@@ -9,7 +9,7 @@ const audience = [
     icon: "/images/icon-school.svg",
     image: "/images/card-img-1.png",
     tag: "Institutions",
-    accent: "#7C3AED", // violet
+    accent: "#7C3AED",
     title: "For Educational Institutes",
     description:
       "Thynk Success helps institutions increase school admissions and build a robust digital presence. Through our expertise in digital marketing for schools, SEO-powered website optimization, parent and student testimonials for trust, and targeted local search strategies, we ensure the right audiences find and choose your school.",
@@ -18,7 +18,7 @@ const audience = [
     icon: "/images/icon-edtech.png",
     image: "/images/card-img-2.png",
     tag: "Companies",
-    accent: "#4F46E5", // indigo
+    accent: "#4F46E5", 
     title: "For EdTech Companies",
     description:
       "Thynk Success helps EdTech companies turn product demos into pipeline. From performance-driven campaigns and landing pages built to convert, to content that speaks directly to schools and parents, we help you reach decision-makers faster and close with confidence.",
@@ -27,7 +27,7 @@ const audience = [
     icon: "/images/icon-university.svg",
     image: "/images/card-img-3.png",
     tag: "Universities",
-    accent: "#A21CAF", // fuchsia
+    accent: "#A21CAF",
     title: "For International Universities",
     description:
       "Thynk Success delivers comprehensive university admission marketing solutions that significantly boost application rates and nurture prospective students. Our strong background in international student recruitment helps universities connect with high-quality students from India and beyond.",
@@ -37,7 +37,6 @@ const audience = [
 export default function AudienceSection() {
   return (
     <section id="services" className="relative overflow-hidden bg-cream py-20 sm:py-28">
-      {/* Ambient light + faint grid, consistent with the rest of the site's texture language */}
       <div className="pointer-events-none absolute -left-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-lavender-200/40 blur-[110px]" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-lavender-200/30 blur-[100px]" />
       <div
@@ -51,7 +50,6 @@ export default function AudienceSection() {
       />
 
       <div className="section-container relative">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +77,6 @@ export default function AudienceSection() {
                 whileHover="hover"
                 animate="rest"
               >
-                {/* Ambient glow blob — drifts slightly on hover */}
                 <motion.div
                   aria-hidden
                   className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl"
@@ -90,8 +87,6 @@ export default function AudienceSection() {
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 />
-
-                {/* Rising border glow */}
                 <motion.div
                   aria-hidden
                   className="pointer-events-none absolute inset-0 rounded-[30px]"
@@ -104,8 +99,6 @@ export default function AudienceSection() {
                   }}
                   transition={{ duration: 0.3 }}
                 />
-
-                {/* Eyebrow tag */}
                 <span
                   className="relative mb-5 w-fit rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider"
                   style={{
@@ -115,8 +108,6 @@ export default function AudienceSection() {
                 >
                   {item.tag}
                 </span>
-
-                {/* Icon badge */}
                 <motion.div
                   className="relative mb-5 flex h-[58px] w-[58px] items-center justify-center rounded-2xl shadow-sm"
                   style={{ background: "color-mix(in srgb, var(--accent) 10%, white)" }}
@@ -146,8 +137,6 @@ export default function AudienceSection() {
                 <p className="relative flex-1 text-[13px] leading-[1.65] text-ink-900/80 sm:text-sm">
                   {item.description}
                 </p>
-
-                {/* Thumbnail — expands and reveals a "view" affordance on hover */}
                 <div className="relative mt-6 flex justify-end">
                   <motion.div
                     className="relative overflow-hidden rounded-[24px] shadow-md"
@@ -167,8 +156,6 @@ export default function AudienceSection() {
                     >
                       <Image src={item.image} alt="" fill className="object-cover" sizes="132px" />
                     </motion.div>
-
-                    {/* Overlay + affordance */}
                     <motion.div
                       className="absolute inset-0 flex items-end justify-start p-2"
                       style={{

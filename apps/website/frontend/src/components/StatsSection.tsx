@@ -1,77 +1,63 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useMotionValue, useSpring, Variants } from "framer-motion";
-
-import type { ReactNode } from "react";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  type Variants,
+} from "framer-motion";
+import { Globe2, GraduationCap, MapPinned, Sparkles } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type Stat = {
- icon: (props: { className?: string }) => ReactNode;
+  icon: LucideIcon;
   value: number;
   format: (v: number) => string;
   label: string;
   sub: string;
-  highlight?: boolean;
+  detail: string;
+  featured?: boolean;
 };
-
-function UniversityIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
-      <path d="M12 3L2 8l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      <path d="M6 10.5V16c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M21 9v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function GlobeIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M3 12h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M12 3c2.8 2.5 4.2 5.8 4.2 9s-1.4 6.5-4.2 9c-2.8-2.5-4.2-5.8-4.2-9s1.4-6.5 4.2-9z" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  );
-}
-
-function MapPinIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
-      <path
-        d="M12 21s-6.5-6.1-6.5-11A6.5 6.5 0 0112 3.5a6.5 6.5 0 016.5 6.5c0 4.9-6.5 11-6.5 11z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="10.5" r="2.4" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  );
-}
 
 const stats: Stat[] = [
   {
-    icon: UniversityIcon,
+    icon: GraduationCap,
     value: 1000,
     format: (v) => `${Math.round(v).toLocaleString("en-IN")}+`,
     label: "Indian Colleges",
     sub: "Partnered network",
+    detail: "Strong reach across education institutions and admission teams.",
   },
   {
-    icon: GlobeIcon,
+    icon: Globe2,
     value: 150,
     format: (v) => `${Math.round(v)}+`,
     label: "Global Universities",
-    sub: "Across the globe",
-    highlight: true,
+    sub: "International access",
+    detail: "Connections that help institutions reach students beyond borders.",
+    featured: true,
   },
   {
-    icon: MapPinIcon,
+    icon: MapPinned,
     value: 15,
     format: (v) => `${Math.round(v)}+`,
     label: "Countries",
     sub: "And growing",
+    detail: "Market presence built for global education growth campaigns.",
   },
 ];
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 24, scale: 0.96 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 function CountUp({
   target,
@@ -83,126 +69,149 @@ function CountUp({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
   const [display, setDisplay] = useState("0");
-
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, { duration: 1.8, bounce: 0 });
 
   useEffect(() => {
-    if (isInView) motionValue.set(target);
-  }, [isInView, target, motionValue]);
+    if (isInView) {
+      motionValue.set(target);
+    }
+  }, [isInView, motionValue, target]);
 
   useEffect(() => {
     const unsub = spring.on("change", (v) => setDisplay(format(v)));
     return unsub;
-  }, [spring, format]);
+  }, [format, spring]);
 
   return <span ref={ref}>{display}</span>;
 }
 
-const listContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const listItem: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-};
-
 export default function StatsSection() {
   return (
-    <section className="relative overflow-hidden bg-purple-500 py-20 sm:py-24">
-      {/* Ambient radial lights, drifting slowly */}
+    <section className="relative overflow-hidden bg-[#17083f] py-12 text-white sm:py-16">
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-purple-300/25 blur-[120px]"
-        animate={{ scale: [1, 1.1, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full bg-purple-500/25 blur-[100px]"
+        animate={{ scale: [1, 1.06, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-purple-700/25 blur-[100px]"
-        animate={{ x: [0, 30, 0], y: [0, -15, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-purple-900/20 blur-[100px]"
-        animate={{ x: [0, -30, 0], y: [0, -15, 0] }}
+        className="pointer-events-none absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-fuchsia-500/15 blur-[80px]"
+        animate={{ x: [0, 25, 0], y: [0, -12, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
       />
-
-      {/* Faint grid, masked toward the edges */}
-      <div
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-indigo-300/15 blur-[90px]"
+        animate={{ x: [0, -25, 0], y: [0, 16, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        animate={{ backgroundPosition: ["0px 0px", "40px 40px"] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
         style={{
           backgroundImage:
             "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          maskImage: "radial-gradient(ellipse 70% 60% at 50% 20%, black 30%, transparent 100%)",
+          backgroundSize: "40px 40px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black 35%, transparent 100%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl px-6">
+      <div className="section-container relative px-4 mx-auto max-w-6xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <motion.span
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 font-head text-[10px] font-bold uppercase tracking-[0.18em] text-white/85 backdrop-blur-md"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Sparkles size={12} />
+            Trusted education reach
+          </motion.span>
+
+          <motion.h2
+            className="mt-4 font-inter text-[clamp(26px,3vw,42px)] font-semibold leading-[1.1] text-white"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ delay: 0.08, duration: 0.45 }}
+          >
+            A network built to move education brands forward.
+          </motion.h2>
+
+          <motion.p
+            className="mx-auto mt-3 max-w-xl font-inter text-sm leading-7 text-white/70"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ delay: 0.16, duration: 0.45 }}
+          >
+            From Indian admission growth to international university
+            partnerships, Thynk Success brings the reach, positioning, and
+            campaign structure education teams need to scale.
+          </motion.p>
+        </div>
+
         <motion.div
-          variants={listContainer}
+          className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-10% 0px" }}
-          className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-3"
+          transition={{ staggerChildren: 0.1 }}
         >
           {stats.map((stat) => {
             const Icon = stat.icon;
+
             return (
-              <motion.div key={stat.label} variants={listItem} whileHover="hover" className="group relative flex">
-                {/* Pulsing glow behind card — breathes slowly, brightens on hover */}
-                <motion.div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(120%_120%_at_30%_0%,_rgba(216,180,254,0.5)_0%,_transparent_60%)]"
-                  animate={{ opacity: stat.highlight ? [0.35, 0.6, 0.35] : [0.12, 0.25, 0.12] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  variants={{ hover: { opacity: 0.8 } }}
-                />
-
-                <motion.div
-                  variants={{ hover: { y: -6 } }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className={`relative flex h-full w-full flex-col items-center rounded-3xl border px-6 py-10 text-center backdrop-blur-sm transition-colors duration-300 ${
-                    stat.highlight
-                      ? "border-white/40 bg-white/[0.12]"
-                      : "border-white/20 bg-white/[0.07] group-hover:border-white/40"
-                  }`}
-                >
-                  {/* Icon badge — gentle continuous float, pops on hover */}
-                  <motion.div
-                    className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white shadow-[0_0_25px_-5px_rgba(255,255,255,0.5)]"
-                    animate={{ y: [0, -6, 0] }}
+              <motion.article
+                key={stat.label}
+                variants={cardVariants}
+                whileHover={{ y: -4, scale: stat.featured ? 1.015 : 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className={`group relative flex flex-col items-center overflow-hidden rounded-2xl border p-6 text-center backdrop-blur-xl ${
+                  stat.featured
+                    ? "border-white/35 bg-white/[0.18] shadow-[0_20px_50px_-25px_rgba(168,85,247,0.6)]"
+                    : "border-white/18 bg-white/[0.09] shadow-[0_15px_40px_-30px_rgba(255,255,255,0.3)]"
+                }`}
+              >
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.2),transparent_50%)] opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full bg-white/10 blur-2xl transition-transform duration-500 group-hover:scale-125" />
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/25 bg-white/15 text-white shadow-[0_12px_25px_-12px_rgba(255,255,255,0.4)]">
+                  <motion.span
+                    animate={{ y: [0, -3, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    variants={{ hover: { scale: 1.1 } }}
                   >
-                    <Icon className="h-6 w-6" />
-                  </motion.div>
-
-                  <p className="font-serif text-4xl font-bold text-white sm:text-5xl">
+                    <Icon size={22} />
+                  </motion.span>
+                </div>
+                <div className="relative mt-5">
+                  <p className="font-serif text-[clamp(36px,4vw,52px)] font-bold leading-none tracking-tight text-white">
                     <CountUp target={stat.value} format={stat.format} />
                   </p>
-
-                  <p className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  <p className="mt-2 font-head text-[11px] font-bold uppercase tracking-[0.2em] text-white">
                     {stat.label}
                   </p>
-                  <p className="mt-1 text-sm text-white/60">{stat.sub}</p>
-
-                  {/* Underline accent, expands on hover */}
-                  <motion.span
-                    aria-hidden
-                    className="mt-4 block h-[3px] rounded-full bg-white"
-                    variants={{ hover: { width: "40px" } }}
-                    initial={{ width: "20px" }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                  />
-                </motion.div>
-              </motion.div>
+                  <p className="mt-1 font-inter text-xs font-medium text-white/65">
+                    {stat.sub}
+                  </p>
+                  <p className="mx-auto mt-3 max-w-[220px] font-inter text-xs leading-5 text-white/70">
+                    {stat.detail}
+                  </p>
+                </div>
+                <motion.span
+                  aria-hidden
+                  className="relative mx-auto mt-4 block h-0.5 rounded-full bg-white/60"
+                  initial={{ width: 20 }}
+                  whileInView={{ width: stat.featured ? 48 : 32 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+                />
+              </motion.article>
             );
           })}
         </motion.div>

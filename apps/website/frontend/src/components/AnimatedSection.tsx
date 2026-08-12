@@ -2,8 +2,6 @@
 
 import { ReactNode, useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
-
-// ─── Fade-in-up wrapper for any element ───
 interface FadeInViewProps {
   children: ReactNode;
   className?: string;
@@ -37,7 +35,6 @@ export function FadeInView({
   );
 }
 
-// ─── Scale-in wrapper ───
 interface ScaleInViewProps {
   children: ReactNode;
   className?: string;
@@ -67,7 +64,6 @@ export function ScaleInView({
   );
 }
 
-// ─── Slide-in from direction ───
 interface SlideInViewProps {
   children: ReactNode;
   className?: string;
@@ -112,7 +108,6 @@ export function SlideInView({
   );
 }
 
-// ─── Stagger children container ───
 interface StaggerContainerProps {
   children: ReactNode;
   className?: string;
@@ -152,8 +147,6 @@ export function StaggerContainer({
     </motion.div>
   );
 }
-
-// ─── Individual stagger child ───
 interface StaggerItemProps {
   children: ReactNode;
   className?: string;

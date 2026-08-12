@@ -82,14 +82,12 @@ const features = [
 export default function FeaturesSection() {
   return (
     <section id="features" className="section-spacing bg-surface-secondary relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--color-brand-100)_0%,_transparent_70%)] opacity-40" />
       </div>
 
       <div className="section-container section-padding relative">
-        {/* Section header */}
         <FadeInView>
           <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium mb-6">
@@ -105,30 +103,23 @@ export default function FeaturesSection() {
             </p>
           </div>
         </FadeInView>
-
-        {/* Features grid */}
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <StaggerItem key={feature.title}>
                 <div className="group relative bg-white rounded-2xl border border-border p-6 hover-lift hover:border-transparent shadow-sm h-full">
-                  {/* Icon */}
                   <div
                     className={`inline-flex items-center justify-center w-11 h-11 rounded-xl ${feature.bgGlow} mb-4 transition-transform duration-300 group-hover:scale-110`}
                   >
                     <Icon size={22} className={`bg-gradient-to-br ${feature.gradient} bg-clip-text text-transparent`} />
                   </div>
-
-                  {/* Content */}
                   <h3 className="text-base font-semibold text-text-primary mb-2">
                     {feature.title}
                   </h3>
                   <p className="text-sm text-text-secondary leading-relaxed">
                     {feature.description}
                   </p>
-
-                  {/* Hover gradient border effect */}
                   <div
                     className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 pointer-events-none`}
                   />

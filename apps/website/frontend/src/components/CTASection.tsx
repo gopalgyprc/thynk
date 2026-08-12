@@ -16,11 +16,8 @@ export default function CTASection() {
       id="cta"
       className="relative py-24 sm:py-32 overflow-hidden"
     >
-      {/* Background */}
       <div className="absolute inset-0 gradient-bg" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.15)_0%,_transparent_70%)]" />
-
-      {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
@@ -29,8 +26,6 @@ export default function CTASection() {
           backgroundSize: "48px 48px",
         }}
       />
-
-      {/* Floating orbs */}
       <motion.div
         className="absolute -top-32 -right-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"
         animate={{ x: [0, -15, 0], y: [0, 15, 0] }}
@@ -44,14 +39,11 @@ export default function CTASection() {
 
       <div className="section-container section-padding relative">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Badge */}
           <FadeInView>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-white/90 text-sm font-medium mb-8 backdrop-blur-sm">
               Get Started Today
             </div>
           </FadeInView>
-
-          {/* Headline */}
           <FadeInView delay={0.1}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white mb-6 leading-[1.1]">
               Ready to{" "}
@@ -59,16 +51,12 @@ export default function CTASection() {
               workflow?
             </h2>
           </FadeInView>
-
-          {/* Subtitle */}
           <FadeInView delay={0.2}>
             <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
               Join thousands of organizations already using ThynkSuccess to
               streamline their operations and achieve more.
             </p>
           </FadeInView>
-
-          {/* Benefits list */}
           <StaggerContainer
             className="flex flex-wrap items-center justify-center gap-4 mb-10"
             staggerDelay={0.06}
@@ -82,8 +70,6 @@ export default function CTASection() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-
-          {/* CTA Buttons */}
           <FadeInView delay={0.3}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
