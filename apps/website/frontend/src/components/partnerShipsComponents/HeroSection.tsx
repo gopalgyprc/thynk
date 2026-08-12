@@ -31,7 +31,7 @@ const badges = [
 
 export  function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#FBFAFF]  sm:py-28">
+    <section className="relative overflow-hidden bg-[#FBFAFF]  sm:py-5">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{

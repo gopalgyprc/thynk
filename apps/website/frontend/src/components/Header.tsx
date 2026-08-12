@@ -7,12 +7,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Home", href: "#top" },
+  { label: "Home", href: "/" },
   {
     label: "Our Products",
     children: [
       { label: "Pulse", href: "https://thynk-pulse.vercel.app/"},
       { label: "Schooling", href: "https://thynk-schooling-six.vercel.app/" },
+      { label: "Pre School", href: "pre-school" },
+      { label: "Kindergarten", href: "kindergarten" },
+      { label: "Primary School", href: "primary-school" },
     ],
   },
   { label: "About Us", href: "#about" },
@@ -154,8 +157,6 @@ export default function Header() {
                           }`}
                         />
                       </button>
-
-                      {/* Mobile Products Dropdown */}
                       <AnimatePresence>
                         {productsOpen && (
                           <motion.div
