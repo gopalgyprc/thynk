@@ -19,7 +19,7 @@ const fadeUp = {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pb-20 pt-10 sm:pb-28 sm:pt-14">
+    <section className="relative overflow-hidden bg-cream pb-20 pt-10 sm:pb-28 sm:pt-14">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
