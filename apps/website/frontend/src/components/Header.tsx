@@ -13,9 +13,6 @@ const navLinks = [
     children: [
       { label: "Pulse", href: "https://thynk-pulse.vercel.app/"},
       { label: "Schooling", href: "https://thynk-schooling-six.vercel.app/" },
-      { label: "Pre School", href: "pre-school" },
-      { label: "Kindergarten", href: "kindergarten" },
-      { label: "Primary School", href: "primary-school" },
     ],
   },
   { label: "About Us", href: "#about" },
@@ -149,7 +146,6 @@ export default function Header() {
                         className="flex w-full items-center justify-between border-b border-purple-600/5 py-3 font-head text-sm font-bold text-ink-700"
                       >
                         <span>{link.label}</span>
-
                         <ChevronDown
                           size={16}
                           className={`transition-transform duration-200 ${
